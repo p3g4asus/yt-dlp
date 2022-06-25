@@ -11,7 +11,6 @@ class MFZHomePlaylistIE(InfoExtractor):
 
     def call_api(self, host, user, pl, **kwargs):
         url = f'https://mfzhome.ddns.net/{host}/m3u'
-        print(f'url is {url}')
         dlr = self._download_json(url, pl, query=dict(username=user, fmt='json', name=pl), **kwargs)
         return dict() if not dlr else dlr
 

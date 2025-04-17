@@ -328,6 +328,7 @@ jobs:
           compression-level: 0
 
       - name: Cleanup cache
+        continue-on-error: true
         if: steps.restore-cache.outputs.cache-hit == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,6 +4,12 @@
 # To create a release, dispatch the https://github.com/yt-dlp/yt-dlp/actions/workflows/release.yml workflow on master
 -->
 
+### 2025.07.23.122202
+
+#### Core changes
+- [Bump version number](https://github.com/yt-dlp/yt-dlp/commit/c8e1e407af0fbe24ff517811d8446f593968a935) by [pukkandan](https://github.com/pukkandan)
+- [Fix bug in jwplayer data parsing filled only with video that should be url_transparent. If jwplayer type field is video/url, set extension as url. Minor fixes in release and build jobs](https://github.com/yt-dlp/yt-dlp/commit/8424b4ef1828ea9cc987092d91bd63b0fa0d8a00) by [pukkandan](https://github.com/pukkandan)
+
 ### 2025.07.21
 
 #### Important changes

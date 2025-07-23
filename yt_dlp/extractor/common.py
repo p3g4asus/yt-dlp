@@ -3653,7 +3653,7 @@ class InfoExtractor:
                 'age_limit': int_or_none(video_data.get('age_restriction')),
             }
             # https://github.com/jwplayer/jwplayer/blob/master/src/js/utils/validator.js#L32
-            if len(formats) == 1 and re.search(r'^(?:http|//).*(?:youtube\.com|youtu\.be)/.+', formats[0]['url']):
+            if len(formats) == 1 and (formats[0]['ext'] == 'url' or re.search(r'^(?:http|//).*(?:youtube\.com|youtu\.be)/.+', formats[0]['url'])):
                 entry.update({
                     '_type': 'url_transparent',
                     'url': formats[0]['url'],
@@ -3679,7 +3679,7 @@ class InfoExtractor:
                 continue
             urls.add(source_url)
             source_type = source.get('type') or ''
-            ext = determine_ext(source_url, default_ext=mimetype2ext(source_type))
+            ext = 'url' if source_type == 'video/url' else determine_ext(source_url, default_ext=mimetype2ext(source_type))
             if source_type == 'hls' or ext == 'm3u8' or 'format=m3u8-aapl' in source_url:
                 formats.extend(self._extract_m3u8_formats(
                     source_url, video_id, 'mp4', entry_protocol='m3u8_native',

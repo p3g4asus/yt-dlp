@@ -2597,7 +2597,7 @@ class GenericIE(InfoExtractor):
             try:
                 info = self._parse_jwplayer_data(
                     jwplayer_data, video_id, require_title=False, base_url=url)
-                if traverse_obj(info, 'formats', ('entries', ..., 'formats')):
+                if traverse_obj(info, 'formats', ('entries', ..., 'formats'), 'url', ('entries', ..., 'url')):
                     self.report_detected('JW Player data')
                     return [info]
             except ExtractorError:

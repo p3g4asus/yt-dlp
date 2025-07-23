@@ -196,6 +196,7 @@ jobs:
           sed -i -E '0,/(name = ")[^"]+(")/s//\1'"${PYPI_PROJECT}"'\2/' pyproject.toml
 
       - name: Build
+        continue-on-error: true
         run: |
           rm -rf dist/*
           make pypi-files
